@@ -1,21 +1,21 @@
 #include "TextUI.h"
-#include "IDamageable.h"
 #include "Canvas.h"
 
-TextUI::TextUI(GameObject* parent)
-	: GameObject("", 1), parent(parent), hp(0.0f), 
-	n_remaining_frames(60), 
-	damageable(dynamic_cast<IDamageable*>(parent))
+TextUI::TextUI(IDamageable* parent)
+	: GameObject("", 1), damageable(parent), hp(0.0f),
+	n_remaining_frames(60)
+	
 {
 	if (parent == nullptr)
 		return;
+
 }
 
 
 void TextUI::draw() const {
 	if (n_remaining_frames == 0) return;
 
-	int parent_pos = parent->getPos();
+	int parent_pos = dynamic_cast<GameObject*>(damageable)->getPos();
 	canvas->draw(getShape(), parent_pos + getPos());
 }
 

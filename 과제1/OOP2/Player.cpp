@@ -11,8 +11,8 @@ Player::Player(const char* shape, int pos, float hp)
 
 void Player::update()
 {
-	for (auto obj: Objects ) {
-	
+	for (auto obj : Objects) {
+
 		if (this->isAlive() == false) break;
 		if (obj == this) continue;
 

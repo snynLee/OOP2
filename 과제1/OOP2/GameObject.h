@@ -28,8 +28,13 @@ protected:
 
 	void addChild(GameObject* child)
 	{
-		if (child != nullptr)
+		if (child != nullptr) {
 			children.push_back(child);
+
+			// Objects¿¡ µî·Ï
+			Objects.push_back(child);
+		}
+			
 	}
 
 	void internalUpdate()
